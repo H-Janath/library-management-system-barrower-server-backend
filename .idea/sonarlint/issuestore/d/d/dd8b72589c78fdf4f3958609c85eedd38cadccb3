@@ -1,0 +1,8 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¤ÿ…Åÿÿÿÿÿ8ñí˜ßÜ1
+j	java:S116"NRename this field "BID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ó®äÃ8ñí˜ßÜ1
+y	java:S116"XRename this field "barrower_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹‚ŒÓýÿÿÿÿ8òí˜ßÜ1
+v	java:S116"URename this field "contact_no" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñýœµÿÿÿÿÿ8òí˜ßÜ1
+o	java:S116"NRename this field "NIC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù¡µêüÿÿÿÿ8òí˜ßÜ1
+\
+java:S1128"?Remove this unused import 'jakarta.persistence.GenerationType'.(²ºëÊ8û¿¥ßÜ1

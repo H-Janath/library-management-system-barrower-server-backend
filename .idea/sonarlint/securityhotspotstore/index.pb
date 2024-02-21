@@ -6,3 +6,7 @@ S
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+^
+.src/main/java/org/example/Entity/Barrower.java,d\d\dd8b72589c78fdf4f3958609c85eedd38cadccb3
+Å
+Q.idea/sonarlint/securityhotspotstore/d/d/dd8b72589c78fdf4f3958609c85eedd38cadccb3,a\1\a1209ab4a0e9f89d1628630fd09df018d067411d
