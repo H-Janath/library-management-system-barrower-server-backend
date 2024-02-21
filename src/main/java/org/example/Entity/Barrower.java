@@ -20,5 +20,4 @@ public class Barrower {
     private String contact_no;
     private String address;
     private String NIC;
-
 }
