@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class Barrower {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy =  GenerationType.AUTO)
     private Long BID;
     private String barrower_name;
     private String contact_no;
