@@ -13,4 +13,6 @@ public interface BarrowerService {
     boolean deleteBarrower(Long bid);
 
     Optional<BarrowerDto> findByID(Long bid);
+
+    void addBarrower(BarrowerDto barrowerDto);
 }

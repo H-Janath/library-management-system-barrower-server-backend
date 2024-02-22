@@ -48,4 +48,10 @@ public class BarrowerServiceImpl implements BarrowerService {
         Optional<BarrowerDto> barrowerDto = Optional.ofNullable(modelMapper.map(barrower, BarrowerDto.class));
         return barrowerDto;
     }
+
+    @Override
+    public void addBarrower(BarrowerDto barrowerDto) {
+        Barrower barrower = modelMapper.map(barrowerDto,Barrower.class);
+        barrowerRepository.save(barrower);
+    }
 }

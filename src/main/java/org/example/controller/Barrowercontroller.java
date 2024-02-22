@@ -27,7 +27,17 @@ public class Barrowercontroller {
             barrowerService.deleteBarrower(bid);
             return ResponseEntity.ok().build();
         }
-        return ResponseEntity.ok().build();
+        return ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<String> addBarrowers(@RequestBody BarrowerDto barrowerDto){
+        Optional<BarrowerDto> optionalBarrowerDto = barrowerService.findByID(barrowerDto.getBid());
+        if(optionalBarrowerDto.isPresent()){
+            barrowerService.addBarrower(barrowerDto);
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 
 }
