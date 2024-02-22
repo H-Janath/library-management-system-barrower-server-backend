@@ -8,5 +8,5 @@ spring:
     hibernate:
       ddl-auto: update
 
-  server:
-    port: 8081
+server:
+  port: 8081
