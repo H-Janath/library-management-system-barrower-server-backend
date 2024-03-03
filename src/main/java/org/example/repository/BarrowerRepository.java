@@ -1,8 +1,11 @@
 package org.example.repository;
 
 import org.example.Entity.Barrower;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface BarrowerRepository extends CrudRepository<Barrower,Long> {
+@Repository
+public interface BarrowerRepository extends JpaRepository<Barrower,Long> {
 
 }

@@ -1,5 +1,4 @@
 package org.example.dto;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,9 +7,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class BarrowerDto {
-    private Long bid;
-    private String barrower_name;
-    private String contact_no;
-    private String address;
-    private String nic;
+    private Long id;
+    private String bid;
+    private String firstname;
+    private String lastname;
+    private String username;
+    private String email;
+    private String address1;
+    private String address2;
+    private String country;
+    private String phone_no;
 }

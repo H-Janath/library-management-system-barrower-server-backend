@@ -1,9 +1,9 @@
 package org.example.Entity;
 
-public class CustomResponse<T> {
-    private int userId;
+public class CustomResponse {
+    private String userId;
 
-    public CustomResponse(int userId) {
+    public CustomResponse(String userId) {
         this.userId = userId;
     }
 }
