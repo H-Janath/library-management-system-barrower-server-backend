@@ -24,4 +24,18 @@ public class Barrower {
     private String address2;
     private String country;
     private String phone_no;
+
+
+    public String generateUserId() {
+        // Example logic: Combine auto-generated ID with custom prefix
+        if (id != null) {
+            this.bid = "USR" + id; // Example prefix + auto-generated ID
+            return bid;
+        } else {
+            // Handle the case where the ID is not set yet
+            // This might happen if the object is not persisted yet
+            this.bid = "USR0001";
+        }
+        return null;
+    }
 }
