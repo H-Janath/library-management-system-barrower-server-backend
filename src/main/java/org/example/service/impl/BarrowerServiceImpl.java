@@ -37,21 +37,35 @@ public class BarrowerServiceImpl implements BarrowerService {
     }
 
     @Override
-    public boolean deleteBarrower(Long bid) {
-        barrowerRepository.deleteById(bid);
+    public boolean deleteBarrower(String bid) {
+        barrowerRepository.deleteBybid(bid);
         return true;
     }
 
     @Override
-    public Optional<BarrowerDto> findByID(Long bid) {
-        Optional<Barrower> barrower = barrowerRepository.findById(bid);
-        Optional<BarrowerDto> barrowerDto = Optional.ofNullable(modelMapper.map(barrower, BarrowerDto.class));
-        return barrowerDto;
+    public Optional<BarrowerDto> findByID(String bid) {
+            Optional<Barrower> barrower = Optional.ofNullable(barrowerRepository.findBybid(bid));
+            Optional<BarrowerDto> barrowerDto = Optional.ofNullable(modelMapper.map(barrower, BarrowerDto.class));
+            return barrowerDto;
     }
 
+
     @Override
-    public void addBarrower(BarrowerDto barrowerDto) {
+    public void updateBarrower(BarrowerDto barrowerDto) {
         Barrower barrower = modelMapper.map(barrowerDto,Barrower.class);
         barrowerRepository.save(barrower);
+    }
+
+    public BarrowerDto addBorrower(BarrowerDto barrowerDto){
+        Barrower barrower = modelMapper.map(barrowerDto,Barrower.class);
+        if(barrower!=null){
+            Barrower barrower1 = barrowerRepository.save(barrower);
+            String userid = barrower1.generateUserId();
+            barrower1.setBid(userid);
+            barrowerRepository.save(barrower1);
+            BarrowerDto barrowerDto1 = modelMapper.map(barrower1,BarrowerDto.class);
+            return barrowerDto1;
+        }
+        return null;
     }
 }

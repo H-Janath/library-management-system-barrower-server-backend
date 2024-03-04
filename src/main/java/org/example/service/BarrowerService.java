@@ -10,9 +10,10 @@ public interface BarrowerService {
 
     List<BarrowerDto> getBarrowers();
 
-    boolean deleteBarrower(Long bid);
+    boolean deleteBarrower(String bid);
 
-    Optional<BarrowerDto> findByID(Long bid);
+    Optional<BarrowerDto> findByID(String bid);
 
-    void addBarrower(BarrowerDto barrowerDto);
+    void updateBarrower(BarrowerDto barrowerDto);
+    BarrowerDto addBorrower(BarrowerDto barrower);
 }
