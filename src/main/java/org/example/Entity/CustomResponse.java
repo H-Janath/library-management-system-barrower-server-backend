@@ -1,9 +1,16 @@
 package org.example.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public class CustomResponse {
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+public class CustomResponse<T> {
     private String userId;
+    private String status;
 
-    public CustomResponse(String userId) {
-        this.userId = userId;
+    CustomResponse(String status){
+        this.status =status;
     }
 }
