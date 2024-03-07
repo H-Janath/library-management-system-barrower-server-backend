@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class BarrowerDto {
-
     private String firstname;
     private String lastname;
     private String username;

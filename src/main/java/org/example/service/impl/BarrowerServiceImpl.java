@@ -60,12 +60,21 @@ public class BarrowerServiceImpl implements BarrowerService {
         Barrower barrower = modelMapper.map(barrowerDto,Barrower.class);
         if(barrower!=null){
             Barrower barrower1 = barrowerRepository.save(barrower);
-            String userid = barrower1.generateUserId();
-            barrower1.setBid(userid);
             barrowerRepository.save(barrower1);
             BarrowerDto barrowerDto1 = modelMapper.map(barrower1,BarrowerDto.class);
             return barrowerDto1;
         }
         return null;
+    }
+
+    public String generateBorrowerId(){
+        Long id = barrowerRepository.findMaxID();
+        if(id!=null){
+            ++id;
+            return "BR"+id;
+        }else{
+            return "BR"+1;
+        }
+
     }
 }

@@ -16,4 +16,5 @@ public interface BarrowerService {
 
     void updateBarrower(BarrowerDto barrowerDto);
     BarrowerDto addBorrower(BarrowerDto barrower);
+    public String generateBorrowerId();
 }

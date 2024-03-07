@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/barrowers")
+@RequestMapping("/borrowers")
 @RequiredArgsConstructor
 @CrossOrigin
 public class Barrowercontroller {
@@ -53,6 +53,19 @@ public class Barrowercontroller {
             CustomResponse<String> customResponse = new CustomResponse<>(addedBorrower.getBid(),"Unsuccessful");
             return new ResponseEntity<>(customResponse, HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @GetMapping("/id")
+    public ResponseEntity<CustomResponse<String>> getId(){
+        String id = barrowerService.generateBorrowerId();
+        if(id!=null){
+            CustomResponse<String> customResponse = new CustomResponse<>(id,"Success");
+            return new ResponseEntity<>(customResponse,HttpStatus.OK);
+        }else{
+            CustomResponse<String> customResponse = new CustomResponse<>(id,"Unsuccessful");
+            return new ResponseEntity<>(customResponse, HttpStatus.BAD_REQUEST);
+        }
+
     }
 
 
