@@ -1,12 +1,11 @@
 package org.example.controller;
 import lombok.RequiredArgsConstructor;
 import org.example.Entity.CustomResponse;
-import org.example.dto.BarrowerDto;
-import org.example.service.BarrowerService;
+import org.example.dto.BorrowerDto;
+import org.example.service.BorrowerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -14,50 +13,50 @@ import java.util.Optional;
 @RequestMapping("/borrowers")
 @RequiredArgsConstructor
 @CrossOrigin
-public class Barrowercontroller {
-    final BarrowerService barrowerService;
+public class BorrowerController {
+    final BorrowerService borrowerService;
 
     @GetMapping("/get")
-    public List<BarrowerDto> getBarrower(){
-        return barrowerService.getBarrowers();
+    public List<BorrowerDto> getBorrower(){
+        return borrowerService.getBarrowers();
     }
 
     @DeleteMapping("/delete/{bid}")
-    public ResponseEntity<String> deleteBarrower(@PathVariable String bid){
-        Optional<BarrowerDto> optionalBarrowerDto = barrowerService.findByID(bid);
-        if(optionalBarrowerDto.isPresent()){
-            barrowerService.deleteBarrower(bid);
+    public ResponseEntity<String> deleteBorrower(@PathVariable String bid){
+        Optional<BorrowerDto> optionalBorrowerDto = borrowerService.findByID(bid);
+        if(optionalBorrowerDto.isPresent()){
+            borrowerService.deleteBarrower(bid);
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();
     }
 
     @PostMapping("/update")
-    public ResponseEntity<String> updateBarrowers(@RequestBody BarrowerDto barrowerDto){
-        Optional<BarrowerDto> optionalBarrowerDto = barrowerService.findByID(barrowerDto.getBid());
-        if(optionalBarrowerDto.isPresent()){
-            barrowerService.updateBarrower(barrowerDto);
+    public ResponseEntity<String> updateBorrowers(@RequestBody BorrowerDto borrowerDto){
+        Optional<BorrowerDto> optionalBorrowerDto = borrowerService.findByID(borrowerDto.getBid());
+        if(optionalBorrowerDto.isPresent()){
+            borrowerService.updateBarrower(borrowerDto);
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();
     }
 
     @PostMapping("/add")
-    public ResponseEntity<CustomResponse<String>> addBorrower(@RequestBody BarrowerDto barrowerDto) {
-        BarrowerDto addedBorrower = barrowerService.addBorrower(barrowerDto);
+    public ResponseEntity<CustomResponse<String>> addBorrower(@RequestBody BorrowerDto borrowerDto) {
+        BorrowerDto addedBorrower = borrowerService.addBorrower(borrowerDto);
 
-        if (addedBorrower != null && addedBorrower.getBid() !=null) {
-            CustomResponse<String> customResponse = new CustomResponse<>(addedBorrower.getBid(), "Success");
+        if (addedBorrower != null && addedBorrower.getBorrowerId() !=null) {
+            CustomResponse<String> customResponse = new CustomResponse<>(addedBorrower.getBorrowerId(), "Success");
             return new ResponseEntity<>(customResponse, HttpStatus.OK);
         } else {
-            CustomResponse<String> customResponse = new CustomResponse<>(addedBorrower.getBid(),"Unsuccessful");
+            CustomResponse<String> customResponse = new CustomResponse<>(addedBorrower.getBorrowerId(),"Unsuccessful");
             return new ResponseEntity<>(customResponse, HttpStatus.BAD_REQUEST);
         }
     }
 
     @GetMapping("/id")
     public ResponseEntity<CustomResponse<String>> getId(){
-        String id = barrowerService.generateBorrowerId();
+        String id = borrowerService.generateBorrowerId();
         if(id!=null){
             CustomResponse<String> customResponse = new CustomResponse<>(id,"Success");
             return new ResponseEntity<>(customResponse,HttpStatus.OK);
