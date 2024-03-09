@@ -10,7 +10,7 @@ public class LoginResponseDTO {
         super();
     }
 
-    public LoginResponseDTO(ApplicationUser user,String jwt){
+    public LoginResponseDTO(ApplicationUser user, String jwt){
         this.user = user;
         this.jwt = jwt;
     }
@@ -18,6 +18,7 @@ public class LoginResponseDTO {
     public ApplicationUser getUser(){
         return this.user;
     }
+
     public void setUser(ApplicationUser user){
         this.user = user;
     }
@@ -29,4 +30,5 @@ public class LoginResponseDTO {
     public void setJwt(String jwt){
         this.jwt = jwt;
     }
+
 }
