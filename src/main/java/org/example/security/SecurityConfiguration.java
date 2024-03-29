@@ -1,4 +1,4 @@
-package org.example.configuration;
+package org.example.security;
 import org.example.utils.RSAKeyProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -52,6 +52,7 @@ public class SecurityConfiguration {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> {
+                    auth.requestMatchers("/borrowers/**").permitAll();
                     auth.requestMatchers("/auth/**").permitAll();
                     auth.requestMatchers("/admin/**").hasRole("ADMIN");
                     auth.requestMatchers("/user/**").hasAnyRole("ADMIN", "USER");

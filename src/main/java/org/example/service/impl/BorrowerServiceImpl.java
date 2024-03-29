@@ -80,4 +80,20 @@ public class BorrowerServiceImpl implements BorrowerService {
             return "BR"+1;
         }
     }
+
+    @Override
+    public BorrowerDto getBorrowerById(String id) {
+        Long numericalId = getNumericidfromBorrowerId(id);
+        Optional<Borrower> byBorrowerId = borrowerRepository.findById(numericalId);
+        BorrowerDto borrowerDto = modelMapper.map(byBorrowerId,BorrowerDto.class);
+        return borrowerDto;
+    }
+
+    private Long getNumericidfromBorrowerId(String borrowerId){
+        // Extract the numeric portion
+        String numericPart = borrowerId.substring(2);
+        // Convert the numeric part to an integer
+        Long borrowerNumber = Long.parseLong(numericPart);
+        return borrowerNumber;
+    }
 }

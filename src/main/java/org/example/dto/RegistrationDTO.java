@@ -1,6 +1,7 @@
 package org.example.dto;
 
 public class RegistrationDTO {
+
     private String username;
     private String password;
 

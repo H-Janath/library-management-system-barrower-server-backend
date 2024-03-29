@@ -1,7 +1,6 @@
 package org.example.service.impl;
 import java.util.HashSet;
 import java.util.Set;
-
 import org.example.Entity.ApplicationUser;
 import org.example.Entity.Role;
 import org.example.dto.LoginResponseDTO;
@@ -15,7 +14,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 @Service
 @Transactional
 public class AuthenticationService {

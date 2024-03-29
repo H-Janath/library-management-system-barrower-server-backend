@@ -1,6 +1,6 @@
 package org.example.controller;
 import lombok.RequiredArgsConstructor;
-import org.example.Entity.CustomResponse;
+import org.example.dto.CustomResponse;
 import org.example.dto.BorrowerDto;
 import org.example.service.BorrowerService;
 import org.springframework.http.HttpStatus;
@@ -64,8 +64,11 @@ public class BorrowerController {
             CustomResponse<String> customResponse = new CustomResponse<>(id,"Unsuccessful");
             return new ResponseEntity<>(customResponse, HttpStatus.BAD_REQUEST);
         }
-
     }
 
-
+    @GetMapping("{id}")
+    public ResponseEntity<BorrowerDto> getBorrowerById(@PathVariable String id){
+        BorrowerDto borrowerById = borrowerService.getBorrowerById(id);
+        return new ResponseEntity<>(borrowerById,HttpStatus.OK);
+    }
 }

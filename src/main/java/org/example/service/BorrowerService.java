@@ -16,4 +16,6 @@ public interface BorrowerService {
     void updateBarrower(BorrowerDto borrowerDto);
     BorrowerDto addBorrower(BorrowerDto barrower);
     public String generateBorrowerId();
+
+    BorrowerDto getBorrowerById(String id);
 }
