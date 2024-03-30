@@ -1,4 +1,5 @@
 package org.example.controller;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.dto.CustomResponse;
 import org.example.dto.BorrowerDto;
@@ -67,7 +68,7 @@ public class BorrowerController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<BorrowerDto> getBorrowerById(@PathVariable String id){
+    public ResponseEntity<BorrowerDto> getBorrowerById(@Valid @PathVariable String id){
         BorrowerDto borrowerById = borrowerService.getBorrowerById(id);
         return new ResponseEntity<>(borrowerById,HttpStatus.OK);
     }

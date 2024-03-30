@@ -1,4 +1,5 @@
 package org.example.dto;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class BorrowerDto {
+    @Pattern(regexp = "BR\\d")
     private String borrowerId;
     private String firstname;
     private String lastname;
